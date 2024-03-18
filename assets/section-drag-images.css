@@ -1,0 +1,116 @@
+.drag-images{
+    overflow:hidden;
+    position:relative
+}
+.drag-images {
+      background-image: url(https://cdn.shopify.com/s/files/1/0690/7258/4959/files/background_header.png?v=1710498296)
+    }
+
+.section__drag-images {
+  background-color: #f8f4f0;
+}
+.drag-images .swiper-wrapper{
+    -webkit-box-align:center;
+    -webkit-align-items:center;
+    -ms-flex-align:center;
+    align-items:center
+}
+.drag-arrows{
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-flex-wrap:wrap;
+    -ms-flex-wrap:wrap;
+    flex-wrap:wrap;
+    -webkit-box-pack:justify;
+    -webkit-justify-content:space-between;
+    -ms-flex-pack:justify;
+    justify-content:space-between;
+    -webkit-box-align:center;
+    -webkit-align-items:center;
+    -ms-flex-align:center;
+    align-items:center;
+    position:relative;
+    left:50px;
+    top:0;
+    z-index:3;
+    width:calc(100% - 100px);
+    margin-top:17px
+}
+@media screen and (max-width: 350px){
+    .drag-arrows{
+        left:50%;
+        -webkit-transform:translateX(-50%);
+        transform:translate(-50%);
+        width:calc(100% - 220px)
+    }
+}
+@media screen and (min-width: 350px){
+    .drag-arrows{
+        left:135px;
+        width:calc(100% - 270px)
+    }
+}
+@media screen and (min-width: 750px){
+    .drag-arrows{
+        position:absolute;
+        width:calc(100% - 70px);
+        left:35px;
+        top:calc(50% - 19px)
+    }
+}
+.drag-arrows.m-hide-arrows{
+    display:none
+}
+.drag-arrows .m-show{
+    display:block
+}
+@media screen and (min-width: 750px){
+    .drag-arrows .m-show{
+        display:none
+    }
+}
+.drag-arrows .m-hide{
+    display:none
+}
+@media screen and (min-width: 750px){
+    .drag-arrows .m-hide{
+        display:block
+    }
+}
+.drag-button-prev,.drag-button-next{
+    cursor:pointer
+}
+.drag-image{
+    width:250px
+}
+.drag-image:nth-child(2n-1){
+    border:2px solid #654e39;
+    padding:8px
+}
+@media only screen and (min-width: 680px){
+    .drag-image:nth-child(2n-1){
+        width:280px
+    }
+}
+@media only screen and (max-width: 680px){
+    .drag-image.swiper-slide-prev,.drag-image.swiper-slide-next{
+        -webkit-transform:scale(.9);
+        transform:scale(.9)
+    }
+    .drag-image.swiper-slide-active{
+        -webkit-transform:scale(1);
+        transform:scale(1)
+    }
+}
+@media only screen and (min-width: 680px){
+    .drag-image{
+        width:320px
+    }
+}
+.drag-image__img{
+    margin:0;
+    display:block;
+    width: 100%;
+}

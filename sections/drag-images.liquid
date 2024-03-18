@@ -1,0 +1,118 @@
+{{ 'section-drag-images.css' | asset_url | stylesheet_tag }}
+
+<div class="drag-images drag-{{ section.id }}">
+  <div class="swiper drag-images__slider js-drag-images__slider-{{ section.id }} m-hide">
+    <div class="swiper-wrapper">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'slide' -%}
+            <div class="swiper-slide drag-image">
+              <img
+                class="drag-image__img"
+                src="{{ block.settings.slide | img_url: "master" }}"
+                alt="Background image"
+              >
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+  <div class="drag-arrows m-hide-arrows">
+    <div class="drag-button-prev">
+      <i class="m-show">
+        <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M29.3335 13H2.66683" stroke="#31261D" stroke-width="4" stroke-miterlimit="10"/>
+          <path d="M12 3.66663L2.66667 13L12 22.3333" stroke="#31261D" stroke-width="4" stroke-miterlimit="10" stroke-linecap="square"/>
+        </svg>
+      </i>
+      <i class="m-hide">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_936_48739)">
+          <path d="M29.3335 16H2.66683" stroke="white" stroke-width="4" stroke-miterlimit="10"/>
+          <path d="M12 6.66666L2.66667 16L12 25.3333" stroke="white" stroke-width="4" stroke-miterlimit="10" stroke-linecap="square"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_936_48739">
+          <rect width="32" height="32" fill="white" transform="matrix(-1 0 0 1 32 0)"/>
+          </clipPath>
+          </defs>
+        </svg>
+      </i>
+    </div>
+    <div class="drag-button-next">
+      <i class="m-show">
+        <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.666504 13H27.3332" stroke="#31261D" stroke-width="4" stroke-miterlimit="10"/>
+          <path d="M18 3.66663L27.3333 13L18 22.3333" stroke="#31261D" stroke-width="4" stroke-miterlimit="10" stroke-linecap="square"/>
+        </svg>
+      </i>
+      <i class="m-hide">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_936_48747)">
+          <path d="M2.6665 16H29.3332" stroke="white" stroke-width="4" stroke-miterlimit="10"/>
+          <path d="M20 6.66666L29.3333 16L20 25.3333" stroke="white" stroke-width="4" stroke-miterlimit="10" stroke-linecap="square"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_936_48747">
+          <rect width="32" height="32" fill="white"/>
+          </clipPath>
+          </defs>
+        </svg>
+      </i>
+    </div>
+  </div>
+</div>
+
+<script>
+  
+  let dragImagesSwiper = new Swiper(`.js-drag-images__slider-{{section.id}}`, {
+    slidesPerGroup: 1,
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    loop: true,
+    slideToClickedSlide: false,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: ".drag-template--{{section.id}} .drag-button-next",
+      prevEl: ".drag-template--{{section.id}} .drag-button-prev",
+    },
+    breakpoints: {
+      680: {
+        slidesPerGroup: 1,
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        loop: true,
+        slideToClickedSlide: false,
+        spaceBetween: 40,
+      }
+    },
+  });
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.drag-images.name",
+  "tag": "section",
+  "class": "section__drag-images",
+  "settings": [],
+  "blocks":[
+    {
+      "type": "slide",
+      "name": "t:sections.drag-images.blocks.slider.name",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slide",
+          "label": "t:sections.drag-images.blocks.slider.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.drag-images.presets.name"
+    }
+  ]
+}
+{% endschema %}
