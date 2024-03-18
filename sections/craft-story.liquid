@@ -1,0 +1,94 @@
+{{ 'section-craft-story.css' | asset_url | stylesheet_tag }}
+<div class="hm-story hm-story-template--{{ section.id }} page-width ">
+  <div class="hm-story__content">
+    <div class="hm-story__label">
+      <div class="hm-story__label__wrapper">
+        <img
+          class="hm-story__label__logo"
+          width="48"
+          height="18"
+          src="{{ section.settings.story_logo | img_url: 'master' }}"
+          alt="label image"
+        >
+      </div>
+    </div>
+    <h3 class="hm-story__title">{{ section.settings.title }}</h3>
+    <div class="hm-story__subtitle">
+      {{ section.settings.content }}
+    </div>
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'buttons' -%}
+          {%- if block.settings.button_label_1 != blank -%}
+            <a class="hm-story__link" href="{{ block.settings.button_link_1 }}">
+              {{- block.settings.button_label_1 | escape -}}
+            </a>
+          {% endif %}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+  <div class="hm-story__img">
+    <img
+      src="{{ section.settings.story_image | img_url: 'master' }}"
+      alt="Story block image"
+    >
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.craft-story.name",
+  "tag": "section",
+  "class": "shopify-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "story_logo",
+      "label": "t:sections.craft-story.settings.story_logo.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_image",
+      "label": "t:sections.craft-story.settings.story_image.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "title",
+      "label": "t:sections.craft-story.settings.title.label"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "default": "<p>Sample Test</p>",
+      "label": "t:sections.craft-story.settings.content.label"
+    }
+  ],
+  "blocks":[
+    {
+      "type": "buttons",
+      "name": "t:sections.image-banner.blocks.buttons.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "default": "Button label",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_label_1.label",
+          "info": "t:sections.image-banner.blocks.buttons.settings.button_label_1.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_link_1.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.craft-story.presets.name"
+    }
+  ]
+}
+{% endschema %}

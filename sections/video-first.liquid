@@ -1,0 +1,38 @@
+{{ 'component-video-first.css' | asset_url | stylesheet_tag }}
+
+<div class="video-first-load__item-video">
+  <div class="border-img border-h"></div>
+  <div class="border-img border-v"></div>
+
+  <video autoplay="" playsinline="" muted="" loop="" class="video uploaded-video">
+    <source src="{{ section.settings.video.sources[1].url }}" title="">
+  </video>
+  <div class="text_on_video">
+   {{ section.settings.image  | img_tag}}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.video-first.name",
+  "tag": "section",
+  "class": "video-first-load",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:sections.video.settings.video.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.video.settings.logo.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.video-first.presets.name"
+    }
+  ]
+}
+{% endschema %}

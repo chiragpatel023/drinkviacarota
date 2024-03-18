@@ -1,0 +1,106 @@
+{{ 'section-present-products.css' | asset_url | stylesheet_tag }}
+
+<div class="sl-section-{{ section.id }} section-products-present">
+  <div class="page-width">
+    <div class="products-present__wrap">
+      <div class="swiper js-products-present">
+        <div class="swiper-wrapper">
+          <!-- Loop -->
+          {%- for product in section.settings.collection.products limit: 4 -%}
+            <div class="products-present js-products-present-block swiper-slide">
+              <div class="products-present__title__wrapper">
+                <span class="products-present__title">{{ product.title }}</span>
+              </div>
+              <div class="products-present__image">
+                <a href="{{ product.url }}" class="products-present__image__wrapper">
+                  <img
+                    class="m-mob-prod-hide"
+                    src="{{ product.metafields.custom.review_image_desktop | file_url  }}"
+                    alt="Product image"
+                  >
+                  <img
+                    class="m-mob-prod-show"
+                    src="{{ product.metafields.custom.review_image_mobile | file_url  }}"
+                    alt="Product image"
+                  >
+                </a>
+              </div>
+              <div class="products-present__stars">
+                <i>
+                  <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.48326 11.3277C6.80106 11.1359 7.19894 11.1359 7.51674 11.3277L9.915 12.7752C10.6723 13.2323 11.6065 12.5533 11.4056 11.6919L10.7691 8.96361C10.6848 8.60211 10.8076 8.22365 11.0882 7.98059L13.2086 6.14369C13.8772 5.56448 13.5198 4.46622 12.6384 4.39144L9.84887 4.15478C9.47929 4.12343 9.15742 3.89009 9.01268 3.54859L7.92072 0.972174C7.57613 0.159146 6.42387 0.159146 6.07928 0.972174L4.98732 3.54859C4.84258 3.89009 4.52071 4.12343 4.15114 4.15478L1.36163 4.39144C0.480205 4.46622 0.122797 5.56448 0.791395 6.14369L2.9118 7.9806C3.19236 8.22365 3.31521 8.60211 3.23087 8.96361L2.59441 11.6919C2.39345 12.5533 3.32768 13.2323 4.085 12.7752L6.48326 11.3277Z" fill="#654E39"></path>
+                  </svg>
+                </i>
+                <i>
+                  <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.48326 11.3277C6.80106 11.1359 7.19894 11.1359 7.51674 11.3277L9.915 12.7752C10.6723 13.2323 11.6065 12.5533 11.4056 11.6919L10.7691 8.96361C10.6848 8.60211 10.8076 8.22365 11.0882 7.98059L13.2086 6.14369C13.8772 5.56448 13.5198 4.46622 12.6384 4.39144L9.84887 4.15478C9.47929 4.12343 9.15742 3.89009 9.01268 3.54859L7.92072 0.972174C7.57613 0.159146 6.42387 0.159146 6.07928 0.972174L4.98732 3.54859C4.84258 3.89009 4.52071 4.12343 4.15114 4.15478L1.36163 4.39144C0.480205 4.46622 0.122797 5.56448 0.791395 6.14369L2.9118 7.9806C3.19236 8.22365 3.31521 8.60211 3.23087 8.96361L2.59441 11.6919C2.39345 12.5533 3.32768 13.2323 4.085 12.7752L6.48326 11.3277Z" fill="#654E39"></path>
+                  </svg>
+                </i>
+                <i>
+                  <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.48326 11.3277C6.80106 11.1359 7.19894 11.1359 7.51674 11.3277L9.915 12.7752C10.6723 13.2323 11.6065 12.5533 11.4056 11.6919L10.7691 8.96361C10.6848 8.60211 10.8076 8.22365 11.0882 7.98059L13.2086 6.14369C13.8772 5.56448 13.5198 4.46622 12.6384 4.39144L9.84887 4.15478C9.47929 4.12343 9.15742 3.89009 9.01268 3.54859L7.92072 0.972174C7.57613 0.159146 6.42387 0.159146 6.07928 0.972174L4.98732 3.54859C4.84258 3.89009 4.52071 4.12343 4.15114 4.15478L1.36163 4.39144C0.480205 4.46622 0.122797 5.56448 0.791395 6.14369L2.9118 7.9806C3.19236 8.22365 3.31521 8.60211 3.23087 8.96361L2.59441 11.6919C2.39345 12.5533 3.32768 13.2323 4.085 12.7752L6.48326 11.3277Z" fill="#654E39"></path>
+                  </svg>
+                </i>
+                <i>
+                  <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.48326 11.3277C6.80106 11.1359 7.19894 11.1359 7.51674 11.3277L9.915 12.7752C10.6723 13.2323 11.6065 12.5533 11.4056 11.6919L10.7691 8.96361C10.6848 8.60211 10.8076 8.22365 11.0882 7.98059L13.2086 6.14369C13.8772 5.56448 13.5198 4.46622 12.6384 4.39144L9.84887 4.15478C9.47929 4.12343 9.15742 3.89009 9.01268 3.54859L7.92072 0.972174C7.57613 0.159146 6.42387 0.159146 6.07928 0.972174L4.98732 3.54859C4.84258 3.89009 4.52071 4.12343 4.15114 4.15478L1.36163 4.39144C0.480205 4.46622 0.122797 5.56448 0.791395 6.14369L2.9118 7.9806C3.19236 8.22365 3.31521 8.60211 3.23087 8.96361L2.59441 11.6919C2.39345 12.5533 3.32768 13.2323 4.085 12.7752L6.48326 11.3277Z" fill="#654E39"></path>
+                  </svg>
+                </i>
+                <i>
+                  <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.48326 11.3277C6.80106 11.1359 7.19894 11.1359 7.51674 11.3277L9.915 12.7752C10.6723 13.2323 11.6065 12.5533 11.4056 11.6919L10.7691 8.96361C10.6848 8.60211 10.8076 8.22365 11.0882 7.98059L13.2086 6.14369C13.8772 5.56448 13.5198 4.46622 12.6384 4.39144L9.84887 4.15478C9.47929 4.12343 9.15742 3.89009 9.01268 3.54859L7.92072 0.972174C7.57613 0.159146 6.42387 0.159146 6.07928 0.972174L4.98732 3.54859C4.84258 3.89009 4.52071 4.12343 4.15114 4.15478L1.36163 4.39144C0.480205 4.46622 0.122797 5.56448 0.791395 6.14369L2.9118 7.9806C3.19236 8.22365 3.31521 8.60211 3.23087 8.96361L2.59441 11.6919C2.39345 12.5533 3.32768 13.2323 4.085 12.7752L6.48326 11.3277Z" fill="#654E39"></path>
+                  </svg>
+                </i>
+              </div>
+              <span class="products-present__review">“{{ product.metafields.custom.quote }}”</span>
+              <span class="products-present__author">{{ product.metafields.custom.author }}</span>
+              <span class="products-present__author-from">{{ product.metafields.custom.author_from }}</span>
+              <a href="/products/classic-negroni-1" class="products-present__link">
+                <span>BUY NOW –</span>
+                <span>{{ product.price | money }}</span>
+              </a>
+            </div>
+          {% endfor %}
+          <!-- End Loop -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  if($(window).width() <= 990 && $(window).width() > 650) {
+      let sliderQuotes_template = new Swiper(".sl-section-{{ section.id }} .js-products-present", {
+          slidesPerView: 1.3,
+          centeredSlides: true,
+          spaceBetween: 16,
+      });
+  }
+  if($(window).width() <= 650) {
+      let sliderQuotes_template = new Swiper(".sl-section-{{ section.id }} .js-products-present", {
+          slidesPerView: 1.18,
+          centeredSlides: true,
+          spaceBetween: 16,
+      });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.present-products.name",
+  "tag": "section",
+  "class": "shopify-section",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.present-products.settings.collection.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.present-products.presets.name"
+    }
+  ]
+}
+{% endschema %}

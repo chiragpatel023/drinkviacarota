@@ -1,0 +1,90 @@
+{{ 'section-cocktails.css' | asset_url | stylesheet_tag }}
+<div class="hm-info hm-info-template--{{ section.id }} page-width">
+  <div class="hm-info__wrapper">
+    <div class="border-img border-h"></div>
+    <div class="border-img border-v"></div>
+    <p class="hm-info__title">{{ section.settings.title | escape }}</p>
+    <div class="hm-info__media">
+      <video
+        autoplay="autoplay"
+        loop="loop"
+        muted
+        defaultMuted
+        playsinline
+        oncontextmenu="return false;"
+        preload="auto"
+      >
+        <source src="{{ section.settings.video.sources[1].url }}" type="video/mp4">
+        <track
+          src="captions_en.vtt"
+          kind="captions"
+          srclang="en"
+          label="PREMIUM CRAFT <span>COCKTAILS</span> Video"
+        >
+      </video>
+    </div>
+    <p class="hm-info__subtitle">{{ section.settings.subtitle }}</p>
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'buttons' -%}
+          {%- if block.settings.button_label_1 != blank -%}
+            <a class="hm-info__btn" href="{{ block.settings.button_link_1 }}">
+              {{- block.settings.button_label_1 | escape -}}
+            </a>
+          {% endif %}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.cocktails.name",
+  "tag": "section",
+  "class": "shopify-section",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:sections.video.settings.video.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "title",
+      "label": "t:sections.cocktails.settings.title.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subtitle",
+      "default": "Subtitle",
+      "label": "t:sections.cocktails.settings.subtitle.label"
+    }
+  ],
+  "blocks":[
+    {
+      "type": "buttons",
+      "name": "t:sections.image-banner.blocks.buttons.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "default": "Button label",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_label_1.label",
+          "info": "t:sections.image-banner.blocks.buttons.settings.button_label_1.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_link_1.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.cocktails.presets.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,195 @@
+.hm-info{
+    margin:56px auto 80px
+}
+@media screen and (min-width: 990px){
+    .hm-info{
+        margin:56px auto
+    }
+}
+@media screen and (min-width: 1200px){
+    .hm-info{
+        margin:96px auto
+    }
+}
+.hm-info .hm-info__wrapper{
+    width:100%;
+    border:2px solid #654e39;
+    padding:35px 32px 55px;
+    position:relative
+}
+@media screen and (min-width: 990px){
+    .hm-info .hm-info__wrapper{
+        padding:40px 32px
+    }
+}
+@media screen and (min-width: 1200px){
+    .hm-info .hm-info__wrapper{
+        padding:56px 40px
+    }
+}
+.hm-info .border-img{
+    position:absolute;
+    left:5px;
+    top:5px;
+    width:calc(100% - 10px);
+    height:calc(100% - 10px);
+    z-index:-1;
+    margin:0;
+    pointer-events:none;
+    display:block;
+}
+.hm-info .border-img.border-h:before,.hm-info .border-img.border-h:after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-position:top;
+    border-radius:10px;
+    background-image:url('https://cdn.shopify.com/s/files/1/0690/7258/4959/files/dot_border_brown.svg');
+    background-size:7px;
+    background-repeat:repeat-x
+}
+.hm-info .border-img.border-h:after{
+    background-position:bottom
+}
+.hm-info .border-img.border-v:before,.hm-info .border-img.border-v:after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-position:left;
+    border-radius:10px;
+    background-image:url("https://cdn.shopify.com/s/files/1/0690/7258/4959/files/dot_border_brown.svg");
+    background-size:7px;
+    background-repeat:repeat-y
+}
+.hm-info .border-img.border-v:after{
+    background-position:right
+}
+.hm-info .hm-info__title{
+    font-family:var(--font-MontecatiniProSemibold-family);
+    font-style:normal;
+    font-weight:600;
+    font-size:34px;
+    line-height:100%;
+    text-align:center;
+    text-transform:uppercase;
+    color:#654e39;
+    padding:0;
+    margin:0 auto;
+}
+@media screen and (min-width: 350px){
+    .hm-info .hm-info__title{
+        font-size:40px;
+        padding:0 10px
+    }
+}
+@media screen and (min-width: 650px){
+    .hm-info .hm-info__title{
+        padding:0 20px
+    }
+}
+@media screen and (min-width: 1200px){
+    .hm-info .hm-info__title{
+        font-size:72px
+    }
+}
+.hm-info .hm-info__title span{
+    -webkit-font-variant-ligatures:none;
+    font-variant-ligatures:none
+}
+.hm-info .hm-info__subtitle{
+    font-family:var(--font-MontecatiniProSemibold-family);
+    font-style:normal;
+    font-weight:600;
+    font-size:34px;
+    line-height:100%;
+    text-align:center;
+    color:#654e39;
+    text-transform:uppercase;
+    margin: 0 auto;
+}
+@media screen and (min-width: 350px){
+    .hm-info .hm-info__subtitle{
+        font-size:40px;
+        padding:0 10px
+    }
+}
+@media screen and (min-width: 1200px){
+    .hm-info .hm-info__subtitle{
+        font-size:72px
+    }
+}
+.hm-info .hm-info__media{
+    width:100%;
+    max-width:1104px;
+    height:190px;
+    margin:10px auto 20px;
+    border:2px solid #654e39;
+    padding:8px
+}
+@media screen and (min-width: 990px){
+    .hm-info .hm-info__media{
+        height:365px;
+        margin:20px auto
+    }
+}
+@media screen and (min-width: 1200px){
+    .hm-info .hm-info__media{
+        margin:20px auto 37px
+    }
+}
+.hm-info .hm-info__media img,.hm-info .hm-info__media video{
+    width:100%;
+    height:100%;
+    -o-object-fit:cover;
+    object-fit:cover;
+    vertical-align:top
+}
+.hm-info .m-mob-prod-show{
+    display:block
+}
+@media screen and (min-width: 768px){
+    .hm-info .m-mob-prod-show{
+        display:none
+    }
+}
+.hm-info .m-mob-prod-hide{
+    display:none
+}
+@media screen and (min-width: 768px){
+    .hm-info .m-mob-prod-hide{
+        display:block
+    }
+}
+.hm-info .hm-info__btn{
+    position:absolute;
+    left:50%;
+    -webkit-transform:translateX(-50%);
+    transform:translate(-50%);
+    bottom:-28px;
+    font-family:var(--font-Calder-family);
+    font-style:normal;
+    font-weight:400;
+    font-size:18px;
+    line-height:140%;
+    text-align:center;
+    text-transform:uppercase;
+    color:#fff;
+    background:#654e39;
+    padding:15px;
+    min-width:200px;
+    text-decoration:none
+}
+@media screen and (min-width: 990px){
+    .hm-info .hm-info__btn{
+        min-width:240px
+    }
+}
+.hm-info .hm-info__btn:hover{
+    background:var(--color_button_background_hover)
+}
